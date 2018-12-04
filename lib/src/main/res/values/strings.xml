@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="lib_language_name_simplified_chinese">简体中文</string>
+    <string name="lib_language_name_traditional_chinese">繁體中文</string>
+    <string name="lib_language_name_english">English</string>
+
+    <string name="lib_language_tips">提示</string>
+    <string name="lib_language_confirm">确定</string>
+    <string name="lib_language_cancel">取消</string>
+    <string name="lib_language_submit">提交</string>
+    <string name="lib_language_finish">完成</string>
+    <string name="lib_language_close">关闭</string>
+
+    <string name="lib_language_settings">设置</string>
+    <string name="lib_language_app_requires_permission">App需要以下权限</string>
+
+    <string name="lib_language_set_language">设置语言</string>
+
+    <string name="lib_language_copy">复制</string>
+    <string name="lib_language_paste">粘贴</string>
+
+    <string name="lib_language_password">密码</string>
+    <string name="lib_language_repeat_password">重复密码</string>
+
+    <string name="lib_language_balance">余额</string>
+
+</resources>

@@ -95,11 +95,11 @@ public class LanguageModel
     /**
      * 返回当前App的语言
      *
+     * @param context
      * @return
      */
-    public static LanguageModel getCurrent()
+    public static LanguageModel getCurrent(Context context)
     {
-        final Context context = LanguageManager.getInstance().getContext();
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         final String json = sharedPreferences.getString(PERSISTENT_KEY, null);
 
@@ -107,7 +107,7 @@ public class LanguageModel
         if (model == null)
         {
             model = from(context.getResources().getConfiguration().locale);
-            setCurrent(model);
+            setCurrent(model, context);
         }
 
         return model;
@@ -117,9 +117,10 @@ public class LanguageModel
      * 设置当前App的语言
      *
      * @param model
+     * @param context
      * @return
      */
-    public static boolean setCurrent(LanguageModel model)
+    public static boolean setCurrent(LanguageModel model, Context context)
     {
         if (model == null)
             return false;
@@ -128,7 +129,6 @@ public class LanguageModel
         if (TextUtils.isEmpty(json))
             return false;
 
-        final Context context = LanguageManager.getInstance().getContext();
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPreferences.edit().putString(PERSISTENT_KEY, json).commit();
     }

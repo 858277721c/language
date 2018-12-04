@@ -1,5 +1,64 @@
 <resources>
 
-    <string name="lib_language_tips">tips</string>
+    <string name="lib_language_tips">Tips</string>
+    <string name="lib_language_confirm">Confirm</string>
+    <string name="lib_language_cancel">Cancel</string>
+    <string name="lib_language_submit">Submit</string>
+    <string name="lib_language_finish">Finish</string>
+    <string name="lib_language_close">Close</string>
+
+    <string name="lib_language_settings">Settings</string>
+    <string name="lib_language_app_requires_permission">App requires the following permissions</string>
+
+    <string name="lib_language_set_language">Set language</string>
+
+    <string name="lib_language_copy">Copy</string>
+    <string name="lib_language_paste">Paste</string>
+
+    <string name="lib_language_register">Register</string>
+    <string name="lib_language_login">Login</string>
+
+    <string name="lib_language_success">Success</string>
+    <string name="lib_language_failed">Failed</string>
+
+    <string name="lib_language_update_content">Update content</string>
+    <string name="lib_language_current_version_is_the_latest">Current version is the latest</string>
+    <string name="lib_language_download">Download</string>
+    <string name="lib_language_download_success">Download success</string>
+    <string name="lib_language_download_failed">Download failed</string>
+    <string name="lib_language_downloading">Downloading</string>
+    <string name="lib_language_re_download">Re download</string>
+    <string name="lib_language_install">Install</string>
+
+    <string name="lib_language_share">Share</string>
+    <string name="lib_language_share_success">Share success</string>
+    <string name="lib_language_share_failed">Share failed</string>
+    <string name="lib_language_share_cancelled">Share cancelled</string>
+
+    <string name="lib_language_password">Password</string>
+    <string name="lib_language_repeat_password">Repeat password</string>
+    <string name="lib_language_modify_password">Modify password</string>
+    <string name="lib_language_password_error">Password error</string>
+    <string name="lib_language_please_input_password">Please input password</string>
+    <string name="lib_language_please_input_password_again">Please input password again</string>
+    <string name="lib_language_please_input_old_password">Please input old password</string>
+    <string name="lib_language_old_password_error">Old password error</string>
+    <string name="lib_language_please_input_new_password">Please input new password</string>
+    <string name="lib_language_new_password_error">New password error</string>
+
+    <string name="lib_language_verification_code">Verification code</string>
+    <string name="lib_language_verification_code_error">Verification code error</string>
+    <string name="lib_language_please_input_verification_code">Please input verification code</string>
+
+    <string name="lib_language_balance">Balance</string>
+
+    <string name="lib_language_error_code">Error code</string>
+    <string name="lib_language_connect_timeout">Connection timeout</string>
+    <string name="lib_language_retry">Retry</string>
+
+    <string name="lib_language_home_page">Home page</string>
+    <string name="lib_language_my">My</string>
+    <string name="lib_language_about_us">About us</string>
+    <string name="lib_language_version">Version</string>
 
 </resources>

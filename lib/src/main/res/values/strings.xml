@@ -4,6 +4,7 @@
     <string name="lib_language_name_traditional_chinese">繁體中文</string>
     <string name="lib_language_name_english">English</string>
 
+
     <string name="lib_language_tips">提示</string>
     <string name="lib_language_confirm">确定</string>
     <string name="lib_language_cancel">取消</string>
@@ -19,9 +20,50 @@
     <string name="lib_language_copy">复制</string>
     <string name="lib_language_paste">粘贴</string>
 
+    <string name="lib_language_register">注册</string>
+    <string name="lib_language_login">登录</string>
+
+    <string name="lib_language_success">成功</string>
+    <string name="lib_language_failed">失败</string>
+
+    <string name="lib_language_update_content">更新内容</string>
+    <string name="lib_language_current_version_is_the_latest">当前版本已是最新版本</string>
+    <string name="lib_language_download">下载</string>
+    <string name="lib_language_download_success">下载成功</string>
+    <string name="lib_language_download_failed">下载失败</string>
+    <string name="lib_language_downloading">下载中</string>
+    <string name="lib_language_re_download">重新下载</string>
+    <string name="lib_language_install">安装</string>
+
+    <string name="lib_language_share">分享</string>
+    <string name="lib_language_share_success">分享成功</string>
+    <string name="lib_language_share_failed">分享失败</string>
+    <string name="lib_language_share_cancelled">取消分享</string>
+
     <string name="lib_language_password">密码</string>
     <string name="lib_language_repeat_password">重复密码</string>
+    <string name="lib_language_modify_password">修改密码</string>
+    <string name="lib_language_password_error">密码不正确</string>
+    <string name="lib_language_please_input_password">请输入密码</string>
+    <string name="lib_language_please_input_password_again">请再次输入密码</string>
+    <string name="lib_language_please_input_old_password">请输入旧密码</string>
+    <string name="lib_language_old_password_error">旧密码不正确</string>
+    <string name="lib_language_please_input_new_password">请输入新密码</string>
+    <string name="lib_language_new_password_error">新密码不正确</string>
+
+    <string name="lib_language_verification_code">验证码</string>
+    <string name="lib_language_verification_code_error">验证码不正确</string>
+    <string name="lib_language_please_input_verification_code">请输入验证码</string>
 
     <string name="lib_language_balance">余额</string>
+
+    <string name="lib_language_error_code">错误码</string>
+    <string name="lib_language_connect_timeout">连接超时</string>
+    <string name="lib_language_retry">重试</string>
+
+    <string name="lib_language_home_page">首页</string>
+    <string name="lib_language_my">我的</string>
+    <string name="lib_language_about_us">关于我们</string>
+    <string name="lib_language_version">版本</string>
 
 </resources>

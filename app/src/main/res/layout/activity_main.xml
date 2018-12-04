@@ -30,6 +30,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:gravity="center"
-        android:text="@string/lib_language_tips" />
+        android:text="@string/lib_language_settings" />
 
 </LinearLayout>

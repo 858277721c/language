@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        final LanguageModel model = LanguageModel.getCurrent();
+        final LanguageModel model = LanguageModel.getCurrent(this);
         model.apply(getResources());
 
         super.onCreate(savedInstanceState);
@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.btn_simplified_chinese:
-                LanguageModel.setCurrent(LanguageModel.SIMPLIFIED_CHINESE);
+                LanguageModel.setCurrent(LanguageModel.SIMPLIFIED_CHINESE, this);
                 recreate();
                 break;
             case R.id.btn_traditional_chinese:
-                LanguageModel.setCurrent(LanguageModel.TRADITIONAL_CHINESE);
+                LanguageModel.setCurrent(LanguageModel.TRADITIONAL_CHINESE, this);
                 recreate();
                 break;
             case R.id.btn_english:
-                LanguageModel.setCurrent(LanguageModel.ENGLISH);
+                LanguageModel.setCurrent(LanguageModel.ENGLISH, this);
                 recreate();
                 break;
         }

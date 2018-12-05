@@ -17,6 +17,7 @@
 
     <string name="lib_language_register">註冊</string>
     <string name="lib_language_login">登錄</string>
+    <string name="lib_language_please_input_your_cell_phone_number">請輸入手機號碼</string>
 
     <string name="lib_language_success">成功</string>
     <string name="lib_language_failed">失敗</string>

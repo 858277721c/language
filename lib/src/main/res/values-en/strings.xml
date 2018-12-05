@@ -17,6 +17,7 @@
 
     <string name="lib_language_register">Register</string>
     <string name="lib_language_login">Login</string>
+    <string name="lib_language_please_input_your_cell_phone_number">Please input your cell phone number</string>
 
     <string name="lib_language_success">Success</string>
     <string name="lib_language_failed">Failed</string>

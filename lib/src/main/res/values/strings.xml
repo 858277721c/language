@@ -22,6 +22,7 @@
 
     <string name="lib_language_register">注册</string>
     <string name="lib_language_login">登录</string>
+    <string name="lib_language_please_input_your_cell_phone_number">请输入手机号码</string>
 
     <string name="lib_language_success">成功</string>
     <string name="lib_language_failed">失败</string>

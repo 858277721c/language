@@ -58,9 +58,10 @@
     <string name="lib_language_retry">Retry</string>
 
     <string name="lib_language_home_page">Home page</string>
-    <string name="lib_language_find">find</string>
+    <string name="lib_language_contacts">Contacts</string>
+    <string name="lib_language_find">Find</string>
     <string name="lib_language_my">My</string>
-    <string name="lib_language_me">me</string>
+    <string name="lib_language_me">Me</string>
     <string name="lib_language_about_us">About us</string>
     <string name="lib_language_version">Version</string>
 

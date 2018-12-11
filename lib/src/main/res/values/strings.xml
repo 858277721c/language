@@ -77,4 +77,6 @@
     <string name="lib_language_today">今天</string>
     <string name="lib_language_yesterday">昨天</string>
 
+    <string name="lib_language_you">你</string>
+
 </resources>

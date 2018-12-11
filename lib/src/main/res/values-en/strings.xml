@@ -72,4 +72,6 @@
     <string name="lib_language_today">Today</string>
     <string name="lib_language_yesterday">Yesterday</string>
 
+    <string name="lib_language_you">You</string>
+
 </resources>

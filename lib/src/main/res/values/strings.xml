@@ -72,4 +72,9 @@
 
     <string name="lib_language_tips_kicked_offline_by_other_client">你的账号在别处登录</string>
 
+    <string name="lib_language_morning">上午</string>
+    <string name="lib_language_afternoon">下午</string>
+    <string name="lib_language_today">今天</string>
+    <string name="lib_language_yesterday">昨天</string>
+
 </resources>

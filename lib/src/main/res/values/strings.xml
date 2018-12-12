@@ -79,4 +79,8 @@
 
     <string name="lib_language_you">你</string>
 
+    <string name="lib_language_request_interface_failed">请求接口失败</string>
+    <string name="lib_language_connect">连接</string>
+    <string name="lib_language_timeout">超时</string>
+
 </resources>

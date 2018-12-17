@@ -83,4 +83,7 @@
     <string name="lib_language_connect">连接</string>
     <string name="lib_language_timeout">超时</string>
 
+    <string name="lib_language_scan">扫描</string>
+    <string name="lib_language_scan_scan">扫一扫</string>
+
 </resources>

@@ -1,0 +1,84 @@
+<resources>
+
+    <string name="lib_language_tips">提示</string>
+    <string name="lib_language_confirm">確定</string>
+    <string name="lib_language_cancel">取消</string>
+    <string name="lib_language_submit">提交</string>
+    <string name="lib_language_finish">完成</string>
+    <string name="lib_language_close">關閉</string>
+
+    <string name="lib_language_settings">設置</string>
+    <string name="lib_language_app_requires_permission">App需要以下權限</string>
+
+    <string name="lib_language_set_language">設置語言</string>
+
+    <string name="lib_language_copy">復制</string>
+    <string name="lib_language_paste">粘貼</string>
+
+    <string name="lib_language_register">註冊</string>
+    <string name="lib_language_login">登錄</string>
+    <string name="lib_language_please_input_your_cell_phone_number">請輸入手機號碼</string>
+
+    <string name="lib_language_success">成功</string>
+    <string name="lib_language_failed">失敗</string>
+
+    <string name="lib_language_update_content">更新內容</string>
+    <string name="lib_language_current_version_is_the_latest">當前版本已是最新版本</string>
+    <string name="lib_language_download">下載</string>
+    <string name="lib_language_download_success">下載成功</string>
+    <string name="lib_language_download_failed">下載失敗</string>
+    <string name="lib_language_downloading">下載中</string>
+    <string name="lib_language_re_download">重新下載</string>
+    <string name="lib_language_install">安裝</string>
+
+    <string name="lib_language_share">分享</string>
+    <string name="lib_language_share_success">分享成功</string>
+    <string name="lib_language_share_failed">分享失敗</string>
+    <string name="lib_language_share_cancelled">取消分享</string>
+
+    <string name="lib_language_password">密碼</string>
+    <string name="lib_language_repeat_password">重復密碼</string>
+    <string name="lib_language_modify_password">修改密碼</string>
+    <string name="lib_language_password_error">密碼不正確</string>
+    <string name="lib_language_please_input_password">請輸入密碼</string>
+    <string name="lib_language_please_input_password_again">請再次輸入密碼</string>
+    <string name="lib_language_please_input_old_password">請輸入舊密碼</string>
+    <string name="lib_language_old_password_error">舊密碼不正確</string>
+    <string name="lib_language_please_input_new_password">請輸入新密碼</string>
+    <string name="lib_language_new_password_error">新密碼不正確</string>
+
+    <string name="lib_language_verification_code">驗證碼</string>
+    <string name="lib_language_verification_code_error">驗證碼不正確</string>
+    <string name="lib_language_please_input_verification_code">請輸入驗證碼</string>
+
+    <string name="lib_language_balance">余額</string>
+
+    <string name="lib_language_error_code">錯誤碼</string>
+    <string name="lib_language_connect_timeout">連接超時</string>
+    <string name="lib_language_retry">重試</string>
+
+    <string name="lib_language_home_page">首頁</string>
+    <string name="lib_language_contacts">聯系人</string>
+    <string name="lib_language_find">發現</string>
+    <string name="lib_language_my">我的</string>
+    <string name="lib_language_me">我</string>
+    <string name="lib_language_about_us">關於我們</string>
+    <string name="lib_language_version">版本</string>
+
+    <string name="lib_language_tips_kicked_offline_by_other_client">妳的賬號在別處登錄</string>
+
+    <string name="lib_language_morning">上午</string>
+    <string name="lib_language_afternoon">下午</string>
+    <string name="lib_language_today">今天</string>
+    <string name="lib_language_yesterday">昨天</string>
+
+    <string name="lib_language_you">妳</string>
+
+    <string name="lib_language_request_interface_failed">請求接口失敗</string>
+    <string name="lib_language_connect">連接</string>
+    <string name="lib_language_timeout">超時</string>
+
+    <string name="lib_language_scan">掃描</string>
+    <string name="lib_language_scan_scan">掃壹掃</string>
+
+</resources>

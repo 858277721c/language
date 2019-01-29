@@ -64,6 +64,7 @@
     <string name="lib_language_me">我</string>
     <string name="lib_language_about_us">關於我們</string>
     <string name="lib_language_version">版本</string>
+    <string name="lib_language_search">搜索</string>
 
     <string name="lib_language_tips_kicked_offline_by_other_client">妳的賬號在別處登錄</string>
 

@@ -64,6 +64,7 @@
     <string name="lib_language_me">Me</string>
     <string name="lib_language_about_us">About us</string>
     <string name="lib_language_version">Version</string>
+    <string name="lib_language_search">search</string>
 
     <string name="lib_language_tips_kicked_offline_by_other_client">Your account is logged on to another client</string>
 

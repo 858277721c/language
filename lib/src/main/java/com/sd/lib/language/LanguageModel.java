@@ -107,6 +107,12 @@ public class LanguageModel
                 && mName.equals(other.mName);
     }
 
+    @Override
+    public int hashCode()
+    {
+        return (mLanguage + "_" + mCountry + "_" + mName).hashCode();
+    }
+
     /**
      * 返回当前App的语言
      *

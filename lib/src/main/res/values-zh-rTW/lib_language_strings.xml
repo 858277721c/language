@@ -82,4 +82,6 @@
     <string name="lib_language_scan">掃描</string>
     <string name="lib_language_scan_scan">掃壹掃</string>
 
+    <string name="lib_language_switching_language_failure">切換語言失敗</string>
+
 </resources>

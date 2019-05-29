@@ -75,11 +75,13 @@
 
     <string name="lib_language_you">You</string>
 
-    <string name="lib_language_request_interface_failed">request interface failed</string>
+    <string name="lib_language_request_interface_failed">Request interface failed</string>
     <string name="lib_language_connect">connect</string>
     <string name="lib_language_timeout">timeout</string>
 
     <string name="lib_language_scan">scan</string>
     <string name="lib_language_scan_scan">scan</string>
+
+    <string name="lib_language_switching_language_failure">Switching language failure</string>
 
 </resources>

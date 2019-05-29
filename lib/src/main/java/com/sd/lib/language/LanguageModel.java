@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
@@ -14,36 +15,62 @@ import java.util.Locale;
 
 public class LanguageModel
 {
-    public static final LanguageModel SIMPLIFIED_CHINESE = new LanguageModel(Locale.SIMPLIFIED_CHINESE.toString(), "简体中文");
-    public static final LanguageModel TRADITIONAL_CHINESE = new LanguageModel(Locale.TRADITIONAL_CHINESE.toString(), "繁體中文");
-    public static final LanguageModel ENGLISH = new LanguageModel(Locale.ENGLISH.toString(), "English");
+    /**
+     * 简体中文，对应{@link Locale#SIMPLIFIED_CHINESE}
+     */
+    public static final LanguageModel SIMPLIFIED_CHINESE = new LanguageModel(Locale.SIMPLIFIED_CHINESE, "简体中文");
+    /**
+     * 繁体中文，对应{@link Locale#TRADITIONAL_CHINESE}
+     */
+    public static final LanguageModel TRADITIONAL_CHINESE = new LanguageModel(Locale.TRADITIONAL_CHINESE, "繁體中文");
+    /**
+     * 英文，对应{@link Locale#ENGLISH}
+     */
+    public static final LanguageModel ENGLISH = new LanguageModel(Locale.ENGLISH, "English");
 
     private static final String PERSISTENT_KEY = LanguageModel.class.getName();
-    private static final Locale HK = new Locale("zh", "HK");
 
-    private final String tag;
-    private final String name;
+    private final String mLanguage;
+    private final String mCountry;
 
-    public LanguageModel(String tag, String name)
+    private final String mName;
+
+    public LanguageModel(Locale locale, String name)
     {
-        if (TextUtils.isEmpty(tag))
-            throw new IllegalArgumentException("language tag is empty");
-
-        if (TextUtils.isEmpty(name))
-            throw new IllegalArgumentException("language name is empty");
-
-        this.tag = tag;
-        this.name = name;
+        this(locale.getLanguage(), locale.getCountry(), name);
     }
 
-    public String getTag()
+    private LanguageModel(String language, String country, String name)
     {
-        return tag;
+        if (TextUtils.isEmpty(language) || TextUtils.isEmpty(name))
+            throw new IllegalArgumentException("language or name is empty");
+
+        if (country == null)
+            country = "";
+
+        mLanguage = language;
+        mCountry = country;
+        mName = name;
     }
 
+    /**
+     * 返回语言名称
+     *
+     * @return
+     */
     public String getName()
     {
-        return name;
+        return mName;
+    }
+
+    /**
+     * 转{@link Locale}
+     *
+     * @return
+     */
+    public Locale toLocale()
+    {
+        return new Locale(mLanguage, mCountry);
     }
 
     /**
@@ -54,32 +81,17 @@ public class LanguageModel
     public void apply(Resources resources)
     {
         final Locale locale = toLocale();
-        if (locale == null)
-            return;
 
         final Configuration configuration = resources.getConfiguration();
-        configuration.locale = locale;
-        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
-    }
-
-    /**
-     * 转{@link Locale}
-     *
-     * @return
-     */
-    public Locale toLocale()
-    {
-        if (Locale.SIMPLIFIED_CHINESE.toString().equals(tag))
+        if (Build.VERSION.SDK_INT >= 17)
         {
-            return Locale.SIMPLIFIED_CHINESE;
-        } else if (Locale.TRADITIONAL_CHINESE.toString().equals(tag))
+            configuration.setLocale(locale);
+        } else
         {
-            return Locale.TRADITIONAL_CHINESE;
-        } else if (Locale.ENGLISH.toString().equals(tag))
-        {
-            return Locale.ENGLISH;
+            configuration.locale = locale;
         }
-        return null;
+
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
     }
 
     @Override
@@ -89,7 +101,10 @@ public class LanguageModel
             return false;
 
         final LanguageModel other = (LanguageModel) obj;
-        return getTag().equals(other.getTag()) && getName().equals(other.getName());
+
+        return mLanguage.equals(other.mLanguage)
+                && mCountry.equals(other.mCountry)
+                && mName.equals(other.mName);
     }
 
     /**
@@ -100,67 +115,101 @@ public class LanguageModel
      */
     public static LanguageModel getCurrent(Context context)
     {
-        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        final String json = sharedPreferences.getString(PERSISTENT_KEY, null);
-
-        LanguageModel model = fromJson(json);
+        LanguageModel model = queryModel(context);
         if (model == null)
         {
-            model = from(context.getResources().getConfiguration().locale);
-            setCurrent(model, context);
+            final Locale locale = context.getResources().getConfiguration().locale;
+            model = LanguageManager.getInstance().getLanguageModel(locale);
+        } else
+        {
+            if (LanguageManager.getInstance().containsLanguage(model))
+            {
+                return model;
+            } else
+            {
+                // 保存的对象已经不在注册列表中了，清空保存的对象，并返回默认的处理对象
+                clearModel(context);
+                return LanguageManager.getInstance().getDefaultLanguageModel();
+            }
         }
 
         return model;
     }
 
     /**
-     * 设置当前App的语言
+     * 设置当前App的语言对象
      *
      * @param model
      * @param context
      * @return
      */
-    public static boolean setCurrent(LanguageModel model, Context context)
+    public static boolean setCurrent(Context context, LanguageModel model)
     {
-        if (model == null)
-            return false;
-
-        final String json = model.toJson();
-        if (TextUtils.isEmpty(json))
-            return false;
-
-        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPreferences.edit().putString(PERSISTENT_KEY, json).commit();
-    }
-
-    private static LanguageModel from(Locale locale)
-    {
-        final String tag = String.valueOf(locale);
-        if (Locale.SIMPLIFIED_CHINESE.toString().equals(tag) || Locale.CHINESE.toString().equals(tag))
+        if (LanguageManager.getInstance().containsLanguage(model))
         {
-            return SIMPLIFIED_CHINESE;
-        } else if (Locale.TRADITIONAL_CHINESE.toString().equals(tag) || HK.toString().equals(tag))
-        {
-            return TRADITIONAL_CHINESE;
-        } else if (Locale.ENGLISH.toString().equals(tag)
-                || Locale.US.toString().equals(tag)
-                || Locale.UK.toString().equals(tag)
-                || Locale.CANADA.toString().equals(tag))
-        {
-            return ENGLISH;
+            return saveModel(context, model);
         } else
         {
-            return SIMPLIFIED_CHINESE;
+            throw new IllegalArgumentException("LanguageModel is not registered: " + model);
         }
     }
 
-    private String toJson()
+    /**
+     * 保存对象到本地
+     *
+     * @param context
+     * @param model
+     * @return
+     */
+    private static boolean saveModel(Context context, LanguageModel model)
+    {
+        if (model == null)
+            throw new IllegalArgumentException("LanguageModel is null when save to local");
+
+        final String saveString = toJson(model);
+        if (TextUtils.isEmpty(saveString))
+            return false;
+
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        return sharedPreferences.edit().putString(PERSISTENT_KEY, saveString).commit();
+    }
+
+    /**
+     * 查询本地保存的对象
+     *
+     * @param context
+     * @return
+     */
+    private static LanguageModel queryModel(Context context)
+    {
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        final String json = sharedPreferences.getString(PERSISTENT_KEY, null);
+        return fromJson(json);
+    }
+
+    /**
+     * 清空本地保存的对象
+     *
+     * @param context
+     * @return
+     */
+    private static boolean clearModel(Context context)
+    {
+        final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+        if (sharedPreferences.contains(PERSISTENT_KEY))
+            return sharedPreferences.edit().remove(PERSISTENT_KEY).commit();
+
+        return false;
+    }
+
+    private static String toJson(LanguageModel model)
     {
         try
         {
             final JSONObject jsonObject = new JSONObject();
-            jsonObject.put("tag", tag);
-            jsonObject.put("name", name);
+            jsonObject.put("language", model.mLanguage);
+            jsonObject.put("country", model.mCountry);
+            jsonObject.put("name", model.mName);
             return jsonObject.toString();
         } catch (JSONException e)
         {
@@ -173,9 +222,10 @@ public class LanguageModel
         try
         {
             final JSONObject jsonObject = new JSONObject(json);
-            final String tag = jsonObject.getString("tag");
+            final String language = jsonObject.getString("language");
+            final String country = jsonObject.getString("country");
             final String name = jsonObject.getString("name");
-            return new LanguageModel(tag, name);
+            return new LanguageModel(language, country, name);
         } catch (Exception e)
         {
             return null;

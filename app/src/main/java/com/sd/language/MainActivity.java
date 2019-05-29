@@ -33,15 +33,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId())
         {
             case R.id.btn_simplified_chinese:
-                LanguageModel.setCurrent(LanguageModel.SIMPLIFIED_CHINESE, this);
+                LanguageModel.setCurrent(this, LanguageModel.SIMPLIFIED_CHINESE);
                 recreate();
                 break;
             case R.id.btn_traditional_chinese:
-                LanguageModel.setCurrent(LanguageModel.TRADITIONAL_CHINESE, this);
+                LanguageModel.setCurrent(this, LanguageModel.TRADITIONAL_CHINESE);
                 recreate();
                 break;
             case R.id.btn_english:
-                LanguageModel.setCurrent(LanguageModel.ENGLISH, this);
+                LanguageModel.setCurrent(this, LanguageModel.ENGLISH);
                 recreate();
                 break;
         }
